@@ -61,10 +61,11 @@
           }                   
                ).then(function (cred) {
             if (cred) {
-              console.log(cred);
-               console.log("userHandle", cred.response.userHandle);
-                console.log("clientDataJSON", cred.response.clientDataJSON);
-              alert("User Credentials :" + JSON.stringify(cred));
+              console.log(cred
+               let clientData = JSON.parse(new TextDecoder().decode(cred.response.clientDataJSON));
+               console.log(clientData.user.displayName);
+               console.log(clientData.user.name);
+               alert("User Credentials :" + JSON.stringify(cred));
             }
           });
         } else {
