@@ -56,7 +56,11 @@
               challenge: new Uint8Array([1, 2, 3, 4, 5]),
 
               rpId: "adebiyiart7.github.io",
-              userVerification: "required"
+              userVerification: "required",
+                allowCredentials: [{
+                type: "public-key",
+                id: new Uint8Array([1, 2, 3, 4, 5])
+              }],
             },
           }
           ).then(function (cred) {
