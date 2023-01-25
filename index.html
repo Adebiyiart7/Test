@@ -18,7 +18,7 @@
                 // Use the user property to specify the user account
                 user: {
                   id: new Uint8Array([6, 7, 8, 9]),
-                  name: "jane.doe@example.com",
+                  name: "ade@example.com",
                   displayName: "Jane Doe",
                 },
                 pubKeyCredParams: [{alg: -7, type: 'public-key'}]
@@ -35,15 +35,29 @@
             })
             .catch(function (error) {
               console.log(error);
-            });
+            }); 
         } else {
           alert("This browser does not support biometric authentication.");
+        }
+      }
+      
+       function getUserInfo() {
+        // check if the browser supports credentials
+        if ("credentials" in navigator) {
+          navigator.credentials.get({ publicKey: true }).then(function (cred) {
+            if (cred) {
+              console.log(cred.response);
+            }
+          });
+        } else {
+          alert("This browser does not support credentials.");
         }
       }
     </script>
   </head>
   <body>
     <button onclick="triggerBiometricAuth()">Trigger Biometric Authentication</button>
+      <button onclick="getUserInfo()">Get User Info</button>
   </body>
 </html>
 
