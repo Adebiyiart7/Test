@@ -32,8 +32,8 @@
             })
             .then(function (assertion) {
               // Send the assertion to the server for verification
-              alert(JSON.stringify(assertion.user))
-              console.log("assertion", assertion.user)
+              alert(JSON.stringify(assertion))
+              console.log("assertion", assertion)
               fetch("/verify", {
                 method: "POST",
                 body: assertion,
@@ -62,7 +62,7 @@
           ).then(function (cred) {
             if (cred) {
               let clientData = JSON.parse(new TextDecoder().decode(cred.response.clientDataJSON));
-              console.log(clientData.user.displayName);
+              console.log(clientData);
               console.log(clientData.user.name);
               alert("User Credentials :" + JSON.stringify(cred));
             }
