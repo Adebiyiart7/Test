@@ -64,8 +64,7 @@
             if (cred) {
               let clientData = JSON.parse(new TextDecoder().decode(cred.response));
               console.log(clientData);
-              console.log(clientData.user.name);
-              alert("User Credentials :" + JSON.stringify(cred));
+              console.log(cred);
             }
           });
         } else {
