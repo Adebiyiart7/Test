@@ -22,18 +22,18 @@
                   name: "ade@example.com",
                   displayName: "Jane Doe",
                 },
-                pubKeyCredParams: [{alg: -7, type: 'public-key'}],
-                    authenticatorSelection: {
-        requireResidentKey: true,
-        userVerification: 'required'
-    }
+                pubKeyCredParams: [{ alg: -7, type: 'public-key' }],
+                authenticatorSelection: {
+                  requireResidentKey: true,
+                  userVerification: 'required'
+                }
 
               },
             })
             .then(function (assertion) {
               // Send the assertion to the server for verification
-            alert(JSON.stringify(assertion.user))
-            console.log("assertion", assertion.user)
+              alert(JSON.stringify(assertion.user))
+              console.log("assertion", assertion.user)
               fetch("/verify", {
                 method: "POST",
                 body: assertion,
@@ -41,31 +41,30 @@
             })
             .catch(function (error) {
               console.log(error);
-            }); 
+            });
         } else {
           alert("This browser does not support biometric authentication.");
         }
       }
-      
-       function getUserInfo() {
+
+      function getUserInfo() {
         // check if the browser supports credentials
         if ("credentials" in navigator) {
           navigator.credentials.get({
             publicKey: {
-                // Use the challenge property to create a nonce
-                challenge: new Uint8Array([1, 2, 3, 4, 5]),
-                
-                  rpId: "adebiyiart7.github.io",
+              // Use the challenge property to create a nonce
+              challenge: new Uint8Array([1, 2, 3, 4, 5]),
+
+              rpId: "adebiyiart7.github.io",
               userVerification: "required"
-              },
-          }                   
-               ).then(function (cred) {
+            },
+          }
+          ).then(function (cred) {
             if (cred) {
-              console.log(cred
-               let clientData = JSON.parse(new TextDecoder().decode(cred.response.clientDataJSON));
-               console.log(clientData.user.displayName);
-               console.log(clientData.user.name);
-               alert("User Credentials :" + JSON.stringify(cred));
+              let clientData = JSON.parse(new TextDecoder().decode(cred.response.clientDataJSON));
+              console.log(clientData.user.displayName);
+              console.log(clientData.user.name);
+              alert("User Credentials :" + JSON.stringify(cred));
             }
           });
         } else {
@@ -74,9 +73,9 @@
       }
     </script>
   </head>
+
   <body>
     <button onclick="triggerBiometricAuth()">Trigger Biometric Authentication</button>
-      <button onclick="getUserInfo()">Get User Info</button>
+    <button onclick="getUserInfo()">Get User Info</button>
   </body>
 </html>
-
