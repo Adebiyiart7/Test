@@ -44,7 +44,7 @@
        function getUserInfo() {
         // check if the browser supports credentials
         if ("credentials" in navigator) {
-          navigator.credentials.get({ publicKey: true }).then(function (cred) {
+          navigator.credentials.get( {publicKey: {challenge: new Uint8Array([1, 2, 3, 4, 5])}}).then(function (cred) {
             if (cred) {
               console.log(cred.response);
               alert(cred.response)
