@@ -62,8 +62,8 @@
           ).then(function (cred) {
             if (cred) {
               let clientData = JSON.parse(new TextDecoder().decode(cred.response.clientDataJSON));
-              console.log(cred);
-              console.log(clientData);
+              console.log(JSON.stringify(cred.id));
+             // console.log(clientData);
             }
           });
         } else {
