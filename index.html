@@ -61,7 +61,7 @@
           }
           ).then(function (cred) {
             if (cred) {
-              let clientData = JSON.parse(new TextDecoder().decode(cred.response));
+              let clientData = JSON.parse(new TextDecoder().decode(cred.response.clientDataJSON));
               console.log(cred);
               console.log(clientData);
             }
