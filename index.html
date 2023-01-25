@@ -11,7 +11,8 @@
   </body>
   <script>
   function auth () {
-    alert(navigator)
+    alert(JSON.stringify(navigator))
+    console.log(navigator)
    // Check if the browser supports biometric authentication
     if ("credentials" in navigator) {
       // Request biometric authentication
