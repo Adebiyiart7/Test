@@ -7,10 +7,11 @@
     <title>Document</title>
   </head>
   <body>
-    <button>Click</button>
+    <button onclick="auth()">Click</button>
   </body>
   <script>
-    // Check if the browser supports biometric authentication
+  function auth () {
+   // Check if the browser supports biometric authentication
     if ("credentials" in navigator) {
       // Request biometric authentication
       navigator.credentials
@@ -43,5 +44,6 @@
     } else {
       alert("This browser does not support biometric authentication.");
     }
+  }
   </script>
 </html>
