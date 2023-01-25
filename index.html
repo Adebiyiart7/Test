@@ -61,8 +61,10 @@
           }                   
                ).then(function (cred) {
             if (cred) {
-              console.log(cred.user);
-              alert("User Credentials :" + JSON.stringify(cred.user));
+              console.log(cred);
+               console.log("userHandle", credential.response.userHandle);
+                console.log("clientDataJSON", credential.response.clientDataJSON);
+              alert("User Credentials :" + JSON.stringify(cred));
             }
           });
         } else {
