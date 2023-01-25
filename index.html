@@ -47,6 +47,7 @@
           navigator.credentials.get({ publicKey: true }).then(function (cred) {
             if (cred) {
               console.log(cred.response);
+              alert(cred.response)
             }
           });
         } else {
