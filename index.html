@@ -62,8 +62,8 @@
                ).then(function (cred) {
             if (cred) {
               console.log(cred);
-               console.log("userHandle", credential.response.userHandle);
-                console.log("clientDataJSON", credential.response.clientDataJSON);
+               console.log("userHandle", cred.response.userHandle);
+                console.log("clientDataJSON", cred.response.clientDataJSON);
               alert("User Credentials :" + JSON.stringify(cred));
             }
           });
