@@ -22,7 +22,12 @@
                   name: "ade@example.com",
                   displayName: "Jane Doe",
                 },
-                pubKeyCredParams: [{alg: -7, type: 'public-key'}]
+                pubKeyCredParams: [{alg: -7, type: 'public-key'}],
+                    authenticatorSelection: {
+        requireResidentKey: true,
+        userVerification: 'required'
+    }
+
               },
             })
             .then(function (assertion) {
