@@ -14,6 +14,7 @@
                 // Use the rp property to specify the relying party
                 rp: {
                   name: "My App",
+                  id: "adebiyiart7.github.io"
                 },
                 // Use the user property to specify the user account
                 user: {
@@ -43,19 +44,17 @@
       
        function getUserInfo() {
         // check if the browser supports credentials
-if ("credentials" in navigator) {
+        if ("credentials" in navigator) {
           navigator.credentials.get({
             publicKey: {
                 // Use the challenge property to create a nonce
                 challenge: new Uint8Array([1, 2, 3, 4, 5]),
-                // Use the rp property to specify the relying party
                 
+                  rpId: "adebiyiart7.github.io",
+              userVerification: "required"
               },
-          
-          
-          }
-                                   
-                                   ).then(function (cred) {
+          }                   
+               ).then(function (cred) {
             if (cred) {
               console.log(cred.response);
               alert("User Credentials :" + JSON.stringify(cred.response));
