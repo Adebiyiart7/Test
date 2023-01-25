@@ -34,7 +34,9 @@
               // Send the assertion to the server for verification
               alert(JSON.stringify(assertion))
               console.log("assertion", assertion)
-              console.log(JSON.parse(new TextDecoder().decode(assertion.response.clientDataJSON)))
+              console.log(JSON.parse(new TextDecoder().decode(assertion.rawId)))
+             console.log(JSON.parse(new TextDecoder().decode(assertion.response.attestationObject)))
+             console.log(JSON.parse(new TextDecoder().decode(assertion.response.clientDataJSON)))
               fetch("/verify", {
                 method: "POST",
                 body: assertion,
