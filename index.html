@@ -27,6 +27,7 @@
             .then(function (assertion) {
               // Send the assertion to the server for verification
             alert(JSON.stringify(assertion))
+            console.log("assertion", assertion)
               fetch("/verify", {
                 method: "POST",
                 body: assertion,
