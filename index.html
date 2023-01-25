@@ -19,8 +19,8 @@
                 // Use the user property to specify the user account
                 user: {
                   id: new Uint8Array([6, 7, 8, 9]),
-                  name: "ade@example.com",
-                  displayName: "Jane Doe",
+                  name: "adebiyiart@example.com",
+                  displayName: "Adeeyo Joseph Adebiyi",
                 },
                 pubKeyCredParams: [{ alg: -7, type: 'public-key' }],
                 authenticatorSelection: {
@@ -34,9 +34,6 @@
               // Send the assertion to the server for verification
               alert(JSON.stringify(assertion))
               console.log("assertion", assertion)
-              console.log(JSON.parse(new TextDecoder().decode(assertion.rawId)))
-             console.log(JSON.parse(new TextDecoder().decode(assertion.response.attestationObject)))
-             console.log(JSON.parse(new TextDecoder().decode(assertion.response.clientDataJSON)))
               fetch("/verify", {
                 method: "POST",
                 body: assertion,
@@ -65,8 +62,8 @@
           ).then(function (cred) {
             if (cred) {
               let clientData = JSON.parse(new TextDecoder().decode(cred.response));
-              console.log(clientData);
               console.log(cred);
+              console.log(clientData);
             }
           });
         } else {
